@@ -8,63 +8,95 @@ class Contact{
         this.address = contactDetails[2];
         this.city = contactDetails[3];
         this.state = contactDetails[4];
-        this.zip = contactDetails[5];
+        this.zipCode = contactDetails[5];
         this.phoneNumber = contactDetails[6];
         this.email = contactDetails[7];
     }
     //getter and setter method
-    get firstName(){
-        return this._firstName;}
+    get firstName() {
+        return this._firstName; 
+    }
 
-    get lastName(){
-        return this._lastName;}
+    set firstName(firstName) {
+        let nameRegex = RegExp('^[A-Z]{1}[a-z]{2,}$')
+        if(nameRegex.test(firstName)) this._firstName = firstName;
+        else throw 'First name is incorrect';
+    }
 
-    get address(){
-        return this._address;}
+    get lastName() {
+        return this._lastName; 
+    }
 
-    get city(){
-        return this._city;}
+    set lastName(lastName) {
+        let nameRegex = RegExp('^[A-Z]{1}[a-z]{2,}$')
+        if(nameRegex.test(lastName)) this._lastName = lastName;
+        else throw 'Last name is incorrect';
+    }
 
-    get state(){
-        return this._state;}
+    get address() {
+        return this._address; 
+    }
 
-    get zip(){
-        return this._zip;}
+    set address(address) {
+        let regex = RegExp('^[A-Z]{1}[a-z]{3,}$')
+        if(regex.test(address)) this._address = address;
+        else throw 'Address is incorrect';
+    }
 
-    get phoneNumber(){
-        return this._phoneNumber;}
+    get city() {
+        return this._city; 
+    }
 
-    get email(){
-        return this._email;}
+    set city(city) {
+        let regex = RegExp('^[A-Z]{1}[a-z]{3,}$')
+        if(regex.test(city)) this._city = city;
+        else throw 'City is incorrect';
+    }
 
-    set firstName(firstName){
-        this._firstName = firstName;}
+    get state() {
+        return this._state; 
+    }
 
-    set lastName(lastName){
-        this._lastName = lastName;}
+    set state(state) {
+        let regex = RegExp('^[A-Z]{1}[a-z]{3,}$')
+        if(regex.test(state)) this._state = state;
+        else throw 'State is incorrect';
+    }
 
-    set address(address){
-        this._address = address;}
+    get zipCode() {
+        return this._zipCode; 
+    }
 
-    set city(city){
-        this._city = city;}
+    set zipCode(zipCode) {
+        let regex = RegExp('^[0-9]{3}\\s{0,1}[0-9]{3}$')
+        if(regex.test(zipCode)) this._zipCode = zipCode;
+        else throw 'ZIP code is incorrect';
+    }
 
-    set state(state){
-        this._state = state;}
+    get phoneNumber() {
+        return this._phoneNumber; 
+    }
 
-    set zip(zip){
-        this._zip = zip;}
+    set phoneNumber(phoneNumber) {
+        let regex = RegExp('[1-9][0-9]{9}')
+        if(regex.test(phoneNumber)) this._phoneNumber = phoneNumber;
+        else throw 'Phone number is incorrect';
+    }
 
-    set phoneNumber(phoneNumber){
-        this._phoneNumber = phoneNumber;}
+    get email() {
+        return this._email; 
+    }
 
-    set email(email){
-        this._email = email;}
+    set email(email) {
+        let regex = RegExp("[\\w+_-]+(?:\\.[\\w_-]+)*@(?:[\\w]+\\.){1,2}[a-zA-Z]{2,}")
+        if(regex.test(email)) this._email = email;
+        else throw 'Email is incorrect';
+    }
 
     toString(){
-        return "First Name : "+ this.firstName + "\nLast Name : "+ this.lastName + "\nAddress : "+ this.address +"\nCity : "+ this.city + "\nState : "+ this.state +"\nZip : "+ this.zip+ "\nPhone Number : "+ this.phoneNumber + "\nEmail : "+ this.email;
+        return "First Name : "+ this.firstName + "\nLast Name : "+ this.lastName + "\nAddress : "+ this.address +"\nCity : "+ this.city + "\nState : "+ this.state +"\nZip : "+ this.zipCode+ "\nPhone Number : "+ this.phoneNumber + "\nEmail : "+ this.email;
     }
 }
 
-let contact = new Contact("Hitesh","Meher","Bhubaneswar","Khordha","Odisha", 751024, 1234567890,"meher.hitesh4@gmail.com");
+let contact = new Contact("Hitesh","Meher","Bhubaneswar","Khordha","Odisha", 751024, 1234567890,"hitesh@gmail.com");
 console.log(contact.toString());
